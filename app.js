@@ -1,17 +1,17 @@
 // Replace these image URLs with your own product photography whenever ready.
 const images = {
-  tacos: 'https://imageproxy.wolt.com/assets/682b8cf20c78421ac092b5e1',
-  cheeseSteak: 'https://mymiamigrill.com/wp-content/uploads/2020/09/original-philly-cheesesteak.png.webp',
-  turkeySandwich: 'https://comerbeber.com/archivos/imagen/2020/07/bodcadillo-fiambre-pavo-ensalada.jpg',
-  friedSandwich: 'https://images.deliveryhero.io/image/talabat/MenuItems/Zinger_Sandwich638338494759218194.jpg',
-  merguezSandwich: 'https://images.ollca.com/fit-in/544x408/ollca/shop/fba81123-54f8-4b49-81ca-abcc3aa6c362/99f2899c-5efa-4f8e-b654-4387067076c9/48209419-98a1-4ccf-8f9a-9ba6f6c7825a.png',
-  mixSandwich: 'https://tb-static.uber.com/prod/image-proc/processed_images/7761a0b5e8b266b65f478643dbc6a902/70aa2a4db7f990373ca9c376323e3dea.jpeg',
-  beefBurger: 'https://wiltoncoffee.com/cdn/shop/files/BURGERMAKEYOUROWN.jpg?v=1742278926&width=900',
-  chickenBurger: 'https://www.burgeron16.com/assets/imgs/17.png',
-  cheeseBurger: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=85',
-  friedBurger: 'https://dineout-media-assets.swiggy.com/swiggy/image/upload/fl_lossy%2Cf_auto%2Cq_auto/v1710146024/71bbfcf50ac62c8a11bb44a89d86c21a.jpg',
-  chickenBowl: 'https://res.cloudinary.com/solin-fitness/image/upload/c_scale%2Cw_500%2Cq_auto%2Cf_auto/single-meal-images/zdzgka11mzfkm3lmffrw',
-  crispyBowl: 'https://fuego13.com/storage/253/Krousty-Classic.webp'
+  tacos: './assets/images/tacos.jpg',
+  cheeseSteak: './assets/images/SandwitchSteak.jpg',
+  turkeySandwich: './assets/images/SandwitchChicken.jpg',
+  friedSandwich: './assets/images/SandwitchFried.jpg',
+  merguezSandwich: './assets/images/SandwitchMerguez.jpg',
+  mixSandwich: './assets/images/SandwitchMix.jpeg',
+  beefBurger: './assets/images/BurgerBeef.jpg',
+  chickenBurger: './assets/images/BurgerChicken.jpg',
+  cheeseBurger: './assets/images/CheeseBurger.jpg',
+  friedBurger: './assets/images/BurgerFriedChicken.jpg',
+  chickenBowl: './assets/images/Bowl.jpg',
+  crispyBowl: './assets/images/Bowl.jpg'
 };
 // Local, product-specific illustrations remain available when a photo host fails.
 const imageFallbacks = new Map(Object.entries(images).map(([key, url]) => [url, `assets/images/${key}.svg`]));
