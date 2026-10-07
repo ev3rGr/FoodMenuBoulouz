@@ -55,9 +55,10 @@ const quantity = document.querySelector('#quantity');
 const filling = document.querySelector('#filling');
 const sauceInputs = [...document.querySelectorAll('input[name="sauce"]')];
 let selected;
+let orderScrollPosition = 0;
 document.querySelector('#product-count').textContent = products.length;
 function render(filter='all') {
-  grid.innerHTML = products.map((p,index) => ({...p,index})).filter(p => filter==='all'||p.category===filter).map(p => `<article class="food-card"><button class="food-image" data-product="${p.index}" aria-label="Commander ${p.name}, ${p.price} DH"><img src="${productPhoto(p)}" data-fallback="${imageFallbacks.get(p.image)}" alt="Photo illustrative : ${p.name}" loading="lazy">${p.tag?`<span class="card-tag">${p.tag}</span>`:''}<span class="image-arrow">↗</span></button><div class="card-body"><p class="card-category">${labels[p.category]}</p><div class="card-title"><h3>${p.name}</h3><strong>${p.price}<small> DH</small></strong></div><p class="description">${p.description}</p><button class="order-button" data-product="${p.index}">Choisir & commander <span>↗</span></button></div></article>`).join('');
+  grid.innerHTML = products.map((p,index) => ({...p,index})).filter(p => filter==='all'||p.category===filter).map(p => `<article class="food-card"><button class="food-image" data-product="${p.index}" aria-label="Commander ${p.name}, ${p.price} DH"><img src="${productPhoto(p)}" data-fallback="${imageFallbacks.get(p.image)}" alt="Photo illustrative : ${p.name}" loading="lazy" decoding="async" width="600" height="375">${p.tag?`<span class="card-tag">${p.tag}</span>`:''}<span class="image-arrow">↗</span></button><div class="card-body"><p class="card-category">${labels[p.category]}</p><div class="card-title"><h3>${p.name}</h3><strong>${p.price}<small> DH</small></strong></div><p class="description">${p.description}</p><button class="order-button" data-product="${p.index}">Choisir & commander <span>↗</span></button></div></article>`).join('');
 }
 function updateOrder() {
   const count = Math.max(1,Math.min(99,parseInt(quantity.value,10)||1));
@@ -82,7 +83,12 @@ grid.addEventListener('click',e => {
   document.querySelector('#filling-field').hidden=!selected.custom;
   sauceInputs.forEach(input => { input.checked = false; });
   filling.value = 'Kafta';
-  quantity.value=1; updateOrder(); dialog.showModal();
+  quantity.value=1; updateOrder();
+  orderScrollPosition = window.scrollY;
+  document.body.style.top = `-${orderScrollPosition}px`;
+  document.body.classList.add('order-open');
+  dialog.showModal();
+  dialog.scrollTop = 0;
 });
 document.querySelectorAll('[data-filter]').forEach(button=>button.addEventListener('click',()=>{
   document.querySelectorAll('[data-filter]').forEach(b=>{b.classList.toggle('active',b===button);b.setAttribute('aria-pressed',String(b===button));});render(button.dataset.filter);
@@ -92,6 +98,11 @@ quantity.addEventListener('change',()=>{quantity.value=Math.max(1,Math.min(99,pa
 filling.addEventListener('change',updateOrder);
 sauceInputs.forEach(input => input.addEventListener('change',updateOrder));
 for(const [id,delta] of [['minus',-1],['plus',1]])document.querySelector('#'+id).addEventListener('click',()=>{quantity.value=Math.max(1,Math.min(99,(parseInt(quantity.value,10)||1)+delta));updateOrder();});
+dialog.addEventListener('close', () => {
+  document.body.classList.remove('order-open');
+  document.body.style.top = '';
+  window.scrollTo({top: orderScrollPosition, behavior: 'instant'});
+});
 dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
 render();
 document.querySelectorAll('img').forEach(img => {

@@ -38,3 +38,9 @@ Every product has an explicit image assignment in `app.js`, used consistently in
 Each photo has a matching local SVG illustration in `assets/images/`. If an external photo fails to load, the menu card, order popup and hero automatically switch to the illustration. Failed hosts are remembered for the current page session. Order messages use the displayed image URL, resolved against the website address; local file URLs are omitted when opening the page directly from disk.
 
 External photos remain dependent on their original hosts. The bundled illustrations are labelled and do not require network access. Replace photo URLs in `app.js` with your own hosted photos for permanent product photography.
+
+## Phone usability
+
+At widths up to 600px, the menu uses readable single-column cards, touch controls of at least 44px, and a fixed menu/WhatsApp bar with safe-area spacing. The order dialog becomes a bottom sheet sized to the dynamic viewport, with a sticky checkout action. Opening the sheet locks background scrolling; closing restores the previous page position. Form controls use 16px text to avoid automatic input zoom on iPhones. Product image dimensions are reserved to reduce layout shifts, and menu photos load lazily with asynchronous decoding.
+
+Validation: order flows, scroll locking/restoration, meat choices, sauce selections, totals and WhatsApp links were checked for all products. HTML nesting and IDs were checked. Browser-based viewport checks could not run because the sandbox blocks Chromium startup; physical phone verification remains outstanding.
