@@ -44,7 +44,7 @@ const products = [
   {name:'Texas Beef',image:images.beefBurger,category:'burger',price:35,description:'Le burger Texas au bœuf. Une bonne dose de gourmandise.',tag:'TEXAS FAVORITE'},
   {name:'Chicken Burger',category:'burger',price:35,description:'Un généreux burger au poulet.',image:images.chickenBurger},
   {name:'Cheese Burger',image:images.cheeseBurger,category:'burger',price:25,description:'Le classique burger au bœuf et au fromage.'},
-  {name:'Fried Chicken',category:'burger',price:25,description:'Un burger au poulet frit pour les amateurs de croustillant.',image:images.friedBurger},
+  {name:'Burger Dinde',category:'burger',price:25,description:'Un burger au poulet frit pour les amateurs de croustillant.',image:images.friedBurger},
   {name:'Bowl Chicken',image:images.chickenBowl,category:'bowl',price:30,description:'Un bowl gourmand au poulet.'},
   {name:'Bowl Crispy',category:'bowl',price:35,description:'Un bowl généreux au poulet crispy.',image:images.crispyBowl,tag:'CRUNCH TIME'}
 ];
