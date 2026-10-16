@@ -5,7 +5,7 @@ const images = {
   turkeySandwich: './assets/images/SandwitchChicken.jpg',
   friedSandwich: './assets/images/SandwitchFried.jpg',
   merguezSandwich: './assets/images/SandwitchMerguez.jpg',
-  mixSandwich: './assets/images/SandwitchMix.jpeg',
+  mixSandwich: './assets/images/SandwitchMix.jpg',
   beefBurger: './assets/images/BurgerBeef.jpg',
   chickenBurger: './assets/images/BurgerChicken.jpg',
   cheeseBurger: './assets/images/CheeseBurger.jpg',
