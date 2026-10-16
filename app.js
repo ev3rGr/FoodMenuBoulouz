@@ -1,7 +1,7 @@
 // Replace these image URLs with your own product photography whenever ready.
 const images = {
   tacos: './assets/images/tacos.jpg',
-  cheeseSteak: './assets/images/SandwitchSteak.jpg',
+  cheeseSteak: './assets/images/SandwitchSteak.jpeg',
   turkeySandwich: './assets/images/SandwitchChicken.jpg',
   friedSandwich: './assets/images/SandwitchFried.jpg',
   merguezSandwich: './assets/images/SandwitchMerguez.jpg',
@@ -45,8 +45,7 @@ const products = [
   {name:'Chicken Burger',category:'burger',price:35,description:'Un généreux burger au poulet.',image:images.chickenBurger},
   {name:'Cheese Burger',image:images.cheeseBurger,category:'burger',price:25,description:'Le classique burger au bœuf et au fromage.'},
   {name:'Burger Dinde',category:'burger',price:25,description:'Un burger au poulet frit pour les amateurs de croustillant.',image:images.friedBurger},
-  {name:'Bowl Chicken',image:images.chickenBowl,category:'bowl',price:30,description:'Un bowl gourmand au poulet.'},
-  {name:'Bowl Crispy',category:'bowl',price:35,description:'Un bowl généreux au poulet crispy.',image:images.crispyBowl,tag:'CRUNCH TIME'}
+  {name:'Bowl Chicken Crispy',category:'bowl',price:35,description:'Un bowl généreux au poulet crispy.',image:images.crispyBowl,tag:'CRUNCH TIME'}
 ];
 const labels = {tacos:'Tacos',sandwich:'Sandwich spécial Texas',burger:'Texas Burgers',bowl:'Bowls'};
 const grid = document.querySelector('#menu-grid');
